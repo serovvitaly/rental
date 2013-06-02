@@ -10,8 +10,8 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+ 
+Route::controller('profile', 'ProfileController');
+ 
+Route::controller('/', 'HomeController');
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
