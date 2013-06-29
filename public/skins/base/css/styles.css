@@ -31,4 +31,10 @@ body{
 .profile-title h4{
     font-weight: normal;
 }
+.profile-header{
+    padding: 20px;
+}
+.profile-header .pfh-panel{
+    
+}
 /* -- /profile -- */
