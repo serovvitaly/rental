@@ -26,5 +26,9 @@
 
   <script src="/vendor/jquery/jquery-1.10.1.min.js"></script>
   <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+  
+  <script src="/vendor/jquery/jsrender/jsrender.min.js"></script>
+  
+  <script src="/skins/base/js/main.js"></script>
 </body>
 </html>

@@ -1,5 +1,77 @@
 body{
     background: url("../img/patterns/pattern6.png");
+    font: 12px/17px Arial;
+}
+label, input, button, select, textarea {
+    font-size: 12px;
+    font-family: Arial;
+}
+
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  display: inline-block;
+  padding: 4px 6px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: #555555;
+  vertical-align: middle;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
+}
+
+.btn {
+    
+    padding: 3px 12px 5px;
+    
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
+          
+  -webkit-box-shadow: inset 0 14px 0 rgba(255, 255, 255, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: inset 0 14px 0 rgba(255, 255, 255, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 14px 0 rgba(255, 255, 255, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.btn-small {
+  padding: 2px 10px 2px;
+  font-size: 11.9px;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
+}
+
+.btn-group > .btn:first-child {
+  margin-left: 0;
+  -webkit-border-bottom-left-radius: 2px;
+          border-bottom-left-radius: 2px;
+     -webkit-border-top-left-radius: 2px;
+             border-top-left-radius: 2px;
+      -moz-border-radius-bottomleft: 2px;
+         -moz-border-radius-topleft: 2px;
+}
+
+.btn-group > .btn:last-child, .btn-group > .dropdown-toggle {
+     -webkit-border-top-right-radius: 2px;
+             border-top-right-radius: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+          border-bottom-right-radius: 2px;
+         -moz-border-radius-topright: 2px;
+      -moz-border-radius-bottomright: 2px;
 }
 
 
@@ -19,7 +91,7 @@ body{
 
 /* -- profile -- */
 .profile-title{
-    background: #262626;
+    background: #354E74;
     color: #FFF;
     -webkit-border-radius: 4px 4px 0 0;
        -moz-border-radius: 4px 4px 0 0;
@@ -31,10 +103,57 @@ body{
 .profile-title h4{
     font-weight: normal;
 }
-.profile-header{
+.profile-header, .profile-footer{
     padding: 20px;
+    width: auto;
+}
+.profile-content{
+    padding: 0 20px;
+    width: auto;
 }
 .profile-header .pfh-panel{
     
+}
+.profile-user-data{
+    margin: 2px 0 0 130px;
+}
+.profile-name{
+    font-weight: normal;
+    margin: 0;
+    line-height: 20px;
+    font-size: 22px;
+}
+.profile-user-rating{
+    margin: 2px 0 0;
+}
+.profile-user-dates{
+    font-size: 11px;
+    color: #969696;
+    margin: 7px 0 0;
+    font-family: tahoma;
+}
+.profile-user-dates i{
+    opacity: 0.8;
+    margin: 0;
+}
+.profile-user-dates span{
+    padding-right: 15px;
+}
+.profile-user-contacts{
+    margin: 14px 0 0;
+}
+.profile-user-contacts span{
+    padding-right: 15px;
+}
+
+.profile-content .component .type-chosen{
+    margin: 10px 0;
+}
+.profile-content .component .splitter{
+    border-bottom: 1px solid #E5E5E5;
+    height: 0;
+    position: absolute;
+    width: 670px;
+    margin-top: 14px;
 }
 /* -- /profile -- */

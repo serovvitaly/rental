@@ -6,9 +6,9 @@ class ProfileController extends BaseController {
     
     public function getIndex()
     {
-        $this->layout->profile_title = 'serovvitaly@gmail.com';
+        $this->layout->profile_title = 'Личный прорфиль';
         
-        $this->layout->content = 'PROFILE';
+        $this->layout->content = '<div class="component">PROFILE</div>';
     }
     
     
