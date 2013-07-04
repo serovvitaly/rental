@@ -74,6 +74,38 @@ input[type="color"],
       -moz-border-radius-bottomright: 2px;
 }
 
+.btn-primary {
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: #2797D6;
+    *background-color: #24507A;
+    background-image: -moz-linear-gradient(top, #2797D6, #24507A);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#2797D6), to(#24507A));
+    background-image: -webkit-linear-gradient(top, #2797D6, #24507A);
+    background-image: -o-linear-gradient(top, #2797D6, #24507A);
+    background-image: linear-gradient(to bottom, #2797D6, #24507A);
+    background-repeat: repeat-x;
+    border-color: #2797D6 #24507A #002a80;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2797D6', endColorstr='#24507A', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary.disabled,
+.btn-primary[disabled] {
+    color: #ffffff;
+    background-color: #24546F;
+    *background-color: #24507A;
+}
+
+.btn-primary:active,
+.btn-primary.active {
+    background-color: #24507A \9;
+}
+
 
 .content-conteiner{
     background: #FFF;
@@ -92,6 +124,18 @@ input[type="color"],
 /* -- profile -- */
 .profile-title{
     background: #354E74;
+    position: relative;
+    
+    background-image: -moz-linear-gradient(top, #4989B4, #406D8B);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#4989B4), to(#406D8B));
+    background-image: -webkit-linear-gradient(top, #4989B4, #406D8B);
+    background-image: -o-linear-gradient(top, #4989B4, #406D8B);
+    background-image: linear-gradient(to bottom, #4989B4, #406D8B);
+    
+    -webkit-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+       -moz-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+    
     color: #FFF;
     -webkit-border-radius: 4px 4px 0 0;
        -moz-border-radius: 4px 4px 0 0;
@@ -102,6 +146,16 @@ input[type="color"],
 }
 .profile-title h4{
     font-weight: normal;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.6);
+}
+.profile-header{
+    border-bottom: 1px solid #D5D5D5;
+    margin-bottom: 20px;
+    background: #F7F7F7;
+    
+    -webkit-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1);
+       -moz-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1);
 }
 .profile-header, .profile-footer{
     padding: 20px;
