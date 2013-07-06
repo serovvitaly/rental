@@ -11,6 +11,7 @@
 |
 */
  
+Route::controller('auth', 'AuthController');
 Route::controller('profile', 'ProfileController');
  
 Route::controller('/', 'HomeController');

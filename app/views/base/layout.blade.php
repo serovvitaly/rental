@@ -6,6 +6,9 @@
   <link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="/skins/base/css/styles.css">
   <title></title>
+  
+  <script src="/vendor/jquery/jquery-1.10.1.min.js"></script>
+  
 </head>
 <body>
 
@@ -24,10 +27,10 @@
     </div>
   </div>
 
-  <script src="/vendor/jquery/jquery-1.10.1.min.js"></script>
   <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
   
   <script src="/vendor/jquery/jsrender/jsrender.min.js"></script>
+  <script src="/vendor/jquery/form/jquery.form.js"></script>
   
   <script src="/skins/base/js/main.js"></script>
 </body>
