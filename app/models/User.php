@@ -48,5 +48,20 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		return $this->email;
 	}
+    
+    
+    /**
+    * Отправляет письмо подтверждения регистрации
+    * 
+    */
+    public function sendConfirmEmail()
+    {
+        $self = $this;
+        
+        Mail::send('emails.auth.confirm', array('user', $this), function($message) use ($self)
+        {
+            $message->to($self->email)->subject('Добро пожаловать на наш сайт!');
+        });
+    }
 
 }

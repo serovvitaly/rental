@@ -4,6 +4,11 @@ class AuthController extends BaseController {
 
     protected $layout = 'base.component.auth';
     
+    protected $_rules = array(
+        'email'    => array('required', 'email'),
+        'password' => array('required', 'min:3'),
+    );
+    
     public function getIndex()
     {
         $this->layout->profile_title = 'Авторизация';
@@ -12,11 +17,76 @@ class AuthController extends BaseController {
     }
     
     
-    public function postAauthorisation()
+    /**
+    * Разлогинивание
+    * 
+    */
+    public function getLogout()
     {
-        $this->layout->profile_title = 'Авторизация';
+        Auth::logout();
+    }
+    
+    
+    /**
+    * Выполняет авторизацию пользователя
+    * 
+    */
+    public function postAuthorisation()
+    {
+        $input = Input::all();
         
-        $this->layout->content = '<div class="component">Авторизация</div>';
+        $validator = Validator::make($input, $this->_rules);
+        
+        $output['success'] = !$validator->fails();
+        $output['errors']  = $validator->errors()->all();
+        
+        if (!$validator->fails()) {
+            if (Auth::attempt($input)) {
+                //
+            } else {
+                $output['success'] = false;
+                $output['errors'][] = 'Неверный логин или пароль';
+            }
+        }
+        
+        return json_encode($output);
+    }
+    
+    
+    /**
+    * Выполняет регистрацию пользователя
+    * 
+    */
+    public function postRegistration()
+    {
+        $input = Input::all();
+        
+        $this->_rules['email'][]    = 'unique:users';
+        $this->_rules['password'][] = 'confirmed';
+        
+        $validator = Validator::make($input, $this->_rules);
+        
+        $output['success'] = !$validator->fails();
+        $output['errors']  = $validator->errors()->all();
+        
+        if (!$validator->fails()) {
+            $user = new User;
+            
+            $user->email    = $input['email'];
+            $user->password = Hash::make($input['password']);
+            
+            if ( $user->save() ) {
+                if ( $user->sendConfirmEmail() ) {
+                    //
+                } else {
+                    //
+                }
+            } else {
+                //
+            }
+        }
+        
+        return json_encode($output);
     }
 
 }

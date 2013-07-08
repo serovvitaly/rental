@@ -10,9 +10,16 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
- 
+
 Route::controller('auth', 'AuthController');
-Route::controller('profile', 'ProfileController');
+
+Route::get('profile', array('before' => 'auth', function()
+{
+    Route::controller('profile', 'ProfileController');
+}));
+ 
+
+
  
 Route::controller('/', 'HomeController');
 

@@ -17,7 +17,7 @@
     @include('base.component.topmenu')
   
     <div style="padding-top: 41px; height: 60px;">
-      toptop
+      <?= Auth::user()->email ?>
     </div>
   
     <div class="container content-conteiner">
