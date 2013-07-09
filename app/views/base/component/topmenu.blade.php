@@ -1,16 +1,11 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="./index.html">Bootstrap</a>
+          <a class="brand" href="/">Ночёвка</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="">
-                <a href="./index.html">Home</a>
+                <a href="/list">Список</a>
               </li>
               <li class="">
                 <a href="./getting-started.html">Get started</a>
@@ -18,19 +13,32 @@
               <li class="">
                 <a href="./scaffolding.html">Scaffolding</a>
               </li>
-              <li class="">
-                <a href="./base-css.html">Base CSS</a>
-              </li>
-              <li class="active">
-                <a href="./components.html">Components</a>
-              </li>
-              <li class="">
-                <a href="./javascript.html">JavaScript</a>
-              </li>
-              <li class="">
-                <a href="./customize.html">Customize</a>
-              </li>
             </ul>
+            
+            <ul class="nav pull-right">
+              <li class="divider-vertical"></li>
+              <? if ( Auth::check() ) { ?>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= Auth::user()->email ?> <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Избранное</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="/profile">Профиль</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/auth/logout">Выход</a></li>
+                </ul>
+              </li>
+              <? } else { ?>
+              <li>
+                <div style="background: #F7F7F7; padding: 2px;margin-top: 5px;border-radius: 3px;">
+                  <button style="margin: 0;" class="btn btn-danger btn-small" onclick="window.location='/auth'" title="Вы сможете добавлять свои объекты и управлять ими.">Регистрация для владельцев</button>
+                  <button style="margin: 0;" class="btn btn-success btn-small" onclick="window.location='/auth'" title="Вы сможете только снимать объекты.">Регистрация</button>
+                  <button style="margin: 0;" class="btn btn-small" onclick="window.location='/auth'">Вход</button>
+                </div>
+              </li>
+              <? } ?>
+            </ul>
+            
           </div>
         </div>
       </div>

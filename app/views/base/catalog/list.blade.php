@@ -1,6 +1,3 @@
-@extends('base.layout')
-
-@section('layout')
 
     <div class="row">
     
@@ -141,5 +138,3 @@
     </script>
     
     @include('base.templates.collection')
-  
-@stop
