@@ -11,15 +11,15 @@
 |
 */
 
+
+
+
 Route::controller('auth', 'AuthController');
 
-Route::get('profile', array('before' => 'auth', function()
-{
-    Route::controller('profile', 'ProfileController');
-}));
- 
+Route::controller('list', 'CatalogController');
 
+Route::controller('profile', 'ProfileController');
 
  
+
 Route::controller('/', 'HomeController');
-

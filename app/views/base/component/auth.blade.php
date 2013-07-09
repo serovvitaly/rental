@@ -1,6 +1,7 @@
 @extends('base.layout')
 
 @section('layout')
+<div class="container content-conteiner">
 
   <div id="auth-container" class="row-fluid" style="background: #3185C7; border-radius: 3px; margin: 2px; width: auto; color: #FFF; padding: 20px 30px;">
     <div class="span6">
@@ -72,5 +73,5 @@
       });
   });    
   </script>
-  
+</div>
 @stop

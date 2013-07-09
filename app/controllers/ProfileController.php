@@ -4,6 +4,11 @@ class ProfileController extends BaseController {
 
     protected $layout = 'base.layout.profile';
     
+    public function __construct()
+    {
+        $this->beforeFilter('auth');
+    }
+    
     public function getIndex()
     {
         $this->layout->profile_title = 'Личный прорфиль';

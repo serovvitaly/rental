@@ -211,3 +211,52 @@ input[type="color"],
     margin-top: 14px;
 }
 /* -- /profile -- */
+
+
+.slider{
+    margin: 10px 0;
+}
+.ui-corner-all{
+    border-radius: 8px;
+}
+.ui-slider-horizontal {
+    height: .2em;
+}
+.ui-slider-horizontal .ui-slider-handle {
+    top: -.5em;
+    margin-left: -.6em;
+}
+.ui-slider .ui-slider-handle {
+    width: 1em;
+    height: 1em;
+}
+.ui-widget-header {
+    background: #9ECDFF;
+}
+
+
+/* -- filter -- */
+.filter-box{
+    padding: 10px;
+}
+.filter-box .filter-group{
+    margin-bottom: 10px;
+}
+.filter-box .filter-group .fg-header{
+    color: #FFF;
+    font-weight: normal;
+    font-size: 12px;
+    padding: 5px 10px;
+    margin: 0 -10px;
+    text-transform: uppercase;
+    background: #1A1A1A;
+    background-image: -moz-linear-gradient(top, #555555, #1A1A1A);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#555555), to(#1A1A1A));
+    background-image: -webkit-linear-gradient(top, #555555, #1A1A1A);
+    background-image: -o-linear-gradient(top, #555555, #1A1A1A);
+    background-image: linear-gradient(to bottom, #555555, #1A1A1A);
+}
+.filter-box .filter-group .fg-body{
+    padding: 10px 0;
+}
+/* -- /filter -- */

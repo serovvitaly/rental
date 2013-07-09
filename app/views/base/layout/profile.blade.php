@@ -1,6 +1,7 @@
 @extends('base.layout')
 
 @section('layout')
+<div class="container content-conteiner">
 
   <div class="row-fluid profile-title">
     <div class="span10 pft-title"><h4>{{$profile_title}}</h4></div>
@@ -84,5 +85,6 @@
 
 
   @include('base.templates.profile')
-  
+
+</div>
 @stop
