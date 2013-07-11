@@ -4,6 +4,7 @@
   position: relative;
   display: inline-block;
   vertical-align: middle;
+  margin-bottom: 10px;
   zoom: 1;
   *display: inline;
 }
@@ -157,7 +158,7 @@
   background-image: -moz-linear-gradient(top, #eeeeee 1%, #ffffff 15%);
   background-image: -o-linear-gradient(top, #eeeeee 1%, #ffffff 15%);
   background-image: linear-gradient(#eeeeee 1%, #ffffff 15%);
-  border: 1px solid #aaa;
+  border: 1px solid #cccccc;
   margin: 0;
   padding: 0;
   cursor: text;
@@ -171,6 +172,9 @@
   -webkit-box-sizing: border-box;
   -khtml-box-sizing : border-box;
   box-sizing        : border-box;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
 }
 .chzn-container-multi .chzn-choices li {
   float: left;
@@ -199,9 +203,9 @@
   color: #999;
 }
 .chzn-container-multi .chzn-choices .search-choice {
-  -webkit-border-radius: 3px;
-  -moz-border-radius   : 3px;
-  border-radius        : 3px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius   : 1px;
+  border-radius        : 1px;
   -moz-background-clip   : padding;
   -webkit-background-clip: padding-box;
   background-clip        : padding-box;
@@ -218,8 +222,8 @@
   color: #333;
   border: 1px solid #aaaaaa;
   line-height: 13px;
-  padding: 3px 20px 3px 5px;
-  margin: 3px 0 3px 5px;
+  padding: 4px 20px 4px 5px;
+  margin: 2px 0 2px 2px;
   position: relative;
   cursor: default;
 }
@@ -291,15 +295,15 @@
 .chzn-container .chzn-results .disabled-result em {
   background: transparent;
 }
-.chzn-container .chzn-results .highlighted {
-  background-color: #3875d7;
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3875d7', endColorstr='#2a62bc', GradientType=0 );  
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(20%, #3875d7), color-stop(90%, #2a62bc));
-  background-image: -webkit-linear-gradient(top, #3875d7 20%, #2a62bc 90%);
-  background-image: -moz-linear-gradient(top, #3875d7 20%, #2a62bc 90%);
-  background-image: -o-linear-gradient(top, #3875d7 20%, #2a62bc 90%);
-  background-image: linear-gradient(#3875d7 20%, #2a62bc 90%);
-  color: #fff;
+.chzn-container .chzn-results .highlighted {  
+  color: #ffffff;
+  background-color: #4989B4;
+  background-image: -moz-linear-gradient(top, #4989B4, #406D8B);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#4989B4), to(#406D8B));
+  background-image: -webkit-linear-gradient(top, #4989B4, #406D8B);
+  background-image: -o-linear-gradient(top, #4989B4, #406D8B);
+  background-image: linear-gradient(to bottom, #4989B4, #406D8B);
+  background-repeat: repeat-x;
 }
 .chzn-container .chzn-results li em {
   background: #feffde;
@@ -390,7 +394,7 @@
   -webkit-box-shadow: 0 0 5px rgba(0,0,0,.3);
   -moz-box-shadow   : 0 0 5px rgba(0,0,0,.3);
   box-shadow        : 0 0 5px rgba(0,0,0,.3);
-  border: 1px solid #5897fb;
+  border: 1px solid rgba(82, 168, 236, 0.8);
 }
 .chzn-container-active .chzn-choices .search-field input {
   color: #111 !important;
