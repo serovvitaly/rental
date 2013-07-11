@@ -18,8 +18,9 @@ Route::controller('auth', 'AuthController');
 
 Route::controller('list', 'CatalogController');
 
-Route::controller('profile', 'ProfileController');
 
- 
+Route::controller('profile/message', 'Profile_MessageController');
+Route::controller('profile', 'Profile_BaseController');
+
 
 Route::controller('/', 'HomeController');

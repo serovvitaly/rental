@@ -18,6 +18,63 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 * @var array
 	 */
 	protected $hidden = array('password');
+    
+    
+    protected function _receivers()
+    {
+        return $this->belongsToMany('User', 'pf_contacts', 'user_id', 'receiver_id');
+    }
+    
+    
+    /**
+    * Возвращает полное ФИО текущего пользователя
+    * 
+    */
+    public function full_name()
+    {
+        return trim($this->surname . ' ' . $this->name . ' ' . $this->patronymic);
+    }
+    
+    
+    /**
+    * Возвращает список контактов
+    * 
+    */
+    public function contacts()
+    {        
+        $receivers = $this->_receivers()->get();
+        
+        $mix = array();
+        foreach ($receivers as $receiver)
+        {
+            $mix[] = array(
+                'id'   => $receiver->id,
+                'name' => $receiver->full_name()
+            );
+        }
+        return $mix;
+    }
+    
+    
+    /**
+    * Возвращает входящие сообщения пользователя
+    * 
+    */
+    public function messages_inbox()
+    {
+        return $this->belongsToMany('Message', 'pf_messages_users');
+    }
+    
+    
+    /**
+    * Возвращает исходящие сообщения пользователя
+    * 
+    */
+    public function messages_outbox()
+    {
+        return $this->hasMany('Message');
+    }
+    
 
 	/**
 	 * Get the unique identifier for the user.

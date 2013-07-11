@@ -9,6 +9,23 @@
   <link rel="stylesheet" type="text/css" href="/vendor/jquery-ui/themes/base/jquery-ui.css">
   <script src="/vendor/jquery-ui/ui/minified/jquery-ui.min.js"></script>
   
+  <link rel="stylesheet" type="text/css" href="/vendor/jquery/toastmessage/resources/css/jquery.toastmessage.css">
+  <script src="/vendor/jquery/toastmessage/jquery.toastmessage.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="/vendor/jquery/iCheck/skins/all.css">
+  <script src="/vendor/jquery/iCheck/jquery.icheck.min.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="/vendor/jquery/selectBoxIt/src/stylesheets/jquery.selectBoxIt.css">
+  <script src="/vendor/jquery/selectBoxIt/src/javascripts/jquery.selectBoxIt.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="/vendor/jquery/chosen/chosen.css">
+  <script src="/vendor/jquery/chosen/chosen.jquery.min.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="/vendor/jquery/Buttons/css/buttons.css">
+  <link rel="stylesheet" type="text/css" href="/vendor/jquery/Buttons/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/vendor/jquery/Buttons/css/font-awesome-ie7.min.css">
+  <script src="/vendor/jquery/Buttons/js/buttons.js"></script>
+  
   <link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="/skins/base/css/styles.css">
   
@@ -34,9 +51,6 @@
   
   <script src="/vendor/jquery/jsrender/jsrender.min.js"></script>
   <script src="/vendor/jquery/form/jquery.form.js"></script>
-  
-  <link rel="stylesheet" type="text/css" href="/vendor/jquery/toastmessage/resources/css/jquery.toastmessage.css">
-  <script src="/vendor/jquery/toastmessage/jquery.toastmessage.js"></script>
   
   <script src="/skins/base/js/main.js"></script>
 </body>

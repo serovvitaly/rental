@@ -19,7 +19,7 @@
               <li class="divider-vertical"></li>
               <? if ( Auth::check() ) { ?>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= Auth::user()->email ?> <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= Auth::user()->full_name() ?> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">Избранное</a></li>
                   <li><a href="#">Another action</a></li>
