@@ -22,8 +22,8 @@
   <script src="/vendor/jquery/chosen/chosen.jquery.min.js"></script>
   
   <link rel="stylesheet" type="text/css" href="/vendor/jquery/Buttons/css/buttons.css">
-  <link rel="stylesheet" type="text/css" href="/vendor/jquery/Buttons/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="/vendor/jquery/Buttons/css/font-awesome-ie7.min.css">
+  <!--link rel="stylesheet" type="text/css" href="/vendor/jquery/Buttons/css/font-awesome.min.css"-->
+  <!--link rel="stylesheet" type="text/css" href="/vendor/jquery/Buttons/css/font-awesome-ie7.min.css"-->
   <script src="/vendor/jquery/Buttons/js/buttons.js"></script>
   
   <link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.css">

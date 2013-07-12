@@ -42,7 +42,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     */
     public function contacts()
     {        
-        $receivers = $this->_receivers()->get();
+        $receivers = $this->_receivers()->orderBy('surname')->get();
         
         $mix = array();
         foreach ($receivers as $receiver)
@@ -62,7 +62,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     */
     public function messages_inbox()
     {
-        return $this->belongsToMany('Message', 'pf_messages_users');
+        return $this->belongsToMany('Message', 'pf_messages_users', 'user_id', 'message_id')->orderBy('updated_at', 'DESC');
     }
     
     
@@ -72,7 +72,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     */
     public function messages_outbox()
     {
-        return $this->hasMany('Message');
+        return $this->hasMany('Message')->orderBy('updated_at', 'DESC');
     }
     
 
