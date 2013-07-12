@@ -55,6 +55,49 @@ i.grey{
     color: grey;
 }
 
+.modal-backdrop {
+    background-color: #30597A;
+}
+.modal-backdrop, .modal-backdrop.fade.in {
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+}
+.modal {
+    background-color: #4090C5;
+    border: none;
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+    outline: none;
+    -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+       -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    -webkit-background-clip: padding-box;
+       -moz-background-clip: padding-box;
+            background-clip: padding-box;
+}
+.modal-header {
+    padding: 9px 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.1);
+    color: #FFF;
+}
+.modal-header h3 {
+    font-weight: normal;
+}
+.modal-footer {
+    padding: 14px 15px 15px;
+    text-align: right;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    -webkit-border-radius: 0 0 3px 3px;
+       -moz-border-radius: 0 0 3px 3px;
+            border-radius: 0 0 3px 3px;
+    -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+            box-shadow: none;
+}
+
 
 .tooltip-inner {
   max-width: 200px;

@@ -42,7 +42,11 @@
 
   <div class="row-fluid profile-content">
     <div class="span3">
-      <button class="btn btn-primary" style="width: 100%;" onclick="showEditHousing()">Добавить объект</button>
+      <!--button class="btn btn-primary" style="width: 100%;" onclick="showEditHousing()">Добавить объект</button-->
+      <button class="button button-rounded button-flat-primary" style="width: 100%;" onclick="showEditHousing()">Добавить объект</button>
+      
+      <!--button href="#myModal" role="button" data-toggle="modal" class="button button-rounded button-flat-primary">Fade in &amp; Scale</button-->
+      
       <div class="side-menu">
         <ul>
           <li class="sm-title"><i class="icon-home"></i> Объявления</li>
@@ -200,7 +204,22 @@
   
   </script>
 
-
+  
+  <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Modal header</h3>
+      </div>
+      <div class="modal-body">
+        <p>One fine body…</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-primary">Save changes</button>
+      </div>
+  </div>
+  
+  
   @include('base.templates.profile')
 
 </div>

@@ -46,6 +46,8 @@
     @show
     
   </div>
+  <div class="md-overlay"></div>
+  
   
   <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
   
@@ -53,5 +55,6 @@
   <script src="/vendor/jquery/form/jquery.form.js"></script>
   
   <script src="/skins/base/js/main.js"></script>
+  
 </body>
 </html>
