@@ -48,6 +48,13 @@ input[type="color"],
           border-radius: 2px;
 }
 
+i.grey{
+    font-style: normal;
+}
+.grey{
+    color: grey;
+}
+
 
 .tooltip-inner {
   max-width: 200px;

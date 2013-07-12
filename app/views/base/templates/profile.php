@@ -265,11 +265,11 @@
   </script>
   
   
-<script id="tpl-profile-msinbox" type="text/x-jsrender">
+<script id="tpl-profile-messages" type="text/x-jsrender">
 <div id="form-profile-msinbox" class="component" style="display:none">
   <div style="margin-bottom: 10px">
     <div class="pagination pagination-small" style="float:right; margin: 0">
-      <span style="vertical-align: top;line-height: 28px;padding-right: 10px;">1-30 из 241</span>
+      <span style="vertical-align: top;line-height: 28px;padding-right: 10px;">{{:total}}</span>
       <ul>
         <li><a href="#"><i class="icon-chevron-left"></i></a></li>
         <li><a href="#"><i class="icon-chevron-right"></i></a></li>
@@ -282,7 +282,7 @@
       <colgroup>
         <col width="30" />
         <col width="30" />
-        <col width="170" />
+        <col width="220" />
         <col />
         <col width="140" style="text-align:right" />
       </colgroup>
@@ -292,7 +292,7 @@
         <tr>
           <td></td>
           <td><img alt="" src="/skins/base/img/star-lit4.png"></td>
-          <td>{{:from}}</td>
+          <td>{{:names}}</td>
           <td>{{:title}}</td>
           <td>{{:created.date}}</td>
         </tr>
@@ -306,93 +306,7 @@
   </table>
   
 </div>
-</script>  
-  
-<script id="tpl-profile-msoutbox" type="text/x-jsrender">
-<div id="form-profile-msoutbox" class="component" style="display:none">
-  <div style="margin-bottom: 10px">
-    <div class="pagination pagination-small" style="float:right; margin: 0">
-      <span style="vertical-align: top;line-height: 28px;padding-right: 10px;">1-1 из 1</span>
-      <ul>
-        <li><a href="#"><i class="icon-chevron-left"></i></a></li>
-        <li><a href="#"><i class="icon-chevron-right"></i></a></li>
-      </ul>
-    </div>
-    <button class="btn btn-small" onclick="newMessage()">Написать сообщение</button>
-  </div>
-
-  <table class="table table-condensed table-hover table-striped">
-      <colgroup>
-        <col width="30" />
-        <col width="30" />
-        <col width="170" />
-        <col />
-        <col width="140" style="text-align:right" />
-      </colgroup>
-      <tbody>
-      {{if rows.length > 0}}
-        {{for rows}}
-        <tr>
-          <td></td>
-          <td><img alt="" src="/skins/base/img/star-lit4.png"></td>
-          <td>{{:to}}</td>
-          <td>{{:title}}</td>
-          <td>{{:created.date}}</td>
-        </tr>
-        {{/for}}
-      {{else}}
-        <tr>
-          <td colspan="5" style="text-align:center">Список пуст</td>
-        </tr>
-      {{/if}}
-      </tbody>
-  </table>
-
-</div>
-</script>  
-  
-<script id="tpl-profile-msfavorit" type="text/x-jsrender">
-<div id="form-profile-msfavorit" class="component" style="display:none">
-  <div style="margin-bottom: 10px">
-    <div class="pagination pagination-small" style="float:right; margin: 0">
-      <span style="vertical-align: top;line-height: 28px;padding-right: 10px;">1-1 из 1</span>
-      <ul>
-        <li><a href="#"><i class="icon-chevron-left"></i></a></li>
-        <li><a href="#"><i class="icon-chevron-right"></i></a></li>
-      </ul>
-    </div>
-    <button class="btn btn-small" onclick="newMessage()">Написать сообщение</button>
-  </div>
-
-  <table class="table table-condensed table-hover table-striped">
-      <colgroup>
-        <col width="30" />
-        <col width="30" />
-        <col width="170" />
-        <col />
-        <col width="120" style="text-align:right" />
-      </colgroup>
-      <tbody>
-      {{if rows.length > 0}}
-        {{for rows}}
-        <tr>
-          <td></td>
-          <td><img alt="" src="/skins/base/img/star-lit4.png"></td>
-          <td>{{:name}}</td>
-          <td>@twitter</td>
-          <td>11:43 5 фев 2013</td>
-        </tr>
-        {{/for}}
-      {{else}}
-        <tr>
-          <td colspan="5" style="text-align:center">Список пуст</td>
-        </tr>
-      {{/if}}
-      </tbody>
-  </table>
-
-</div>
-</script>  
+</script>
   
 <script id="tpl-profile-mscontacts" type="text/x-jsrender">
 <div id="form-profile-mscontacts" class="component" style="display:none">

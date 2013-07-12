@@ -14,24 +14,7 @@ class Message extends Eloquent {
     
     public function to()
     {
-        return $this->belongsToMany('User', 'pf_messages_users', 'user_id', 'message_id');
-    }
-    
-    
-    /**
-    * Добавляет получателя данноего сообщения
-    * 
-    * @param mixed $receiver_id
-    */
-    public function add_to($receiver_id)
-    {
-        $user = User::find($receiver_id);
-        
-        if ($user AND $user->id > 0) {
-            $this->to()->save($user, array('message_id' => $this->id));
-        }        
-        
-        return $this;
+        return $this->belongsToMany('User', 'pf_messages_users');
     }
     
     

@@ -55,10 +55,10 @@
       <div class="side-menu">
         <ul>
           <li class="sm-title"><i class="icon-envelope"></i> Сообщения</li>
-          <li><a href="/profile/msinbox" data-title="Входящие сообщения" data-tpl="profile-msinbox">Входящие</a> <span class="badge badge-info sm-notify">8</span></li>
-          <li><a href="/profile/msoutbox" data-title="Исходящие сообщения" data-tpl="profile-msoutbox">Исходящие</a></li>
-          <li><a href="/profile/msfavorit" data-title="Избранные сообщения" data-tpl="profile-msfavorit">Избранные</a></li>
-          <li><a href="/profile/mscontacts" data-title="Контакты" data-tpl="profile-mscontacts" style="font-weight: bold;">Контакты</a></li>
+          <li><a href="/profile/message/inbox" data-title="Входящие сообщения" data-tpl="profile-messages">Входящие</a> <span class="badge badge-info sm-notify">8</span></li>
+          <li><a href="/profile/message/outbox" data-title="Исходящие сообщения" data-tpl="profile-messages">Исходящие</a></li>
+          <li><a href="/profile/message/favorit" data-title="Избранные сообщения" data-tpl="profile-messages">Избранные</a></li>
+          <li><a href="/profile/message/contacts" data-title="Контакты" data-tpl="profile-mscontacts" style="font-weight: bold;">Контакты</a></li>
         </ul>
       </div>
     </div>
@@ -155,7 +155,7 @@
           'Новое сообщение', 
           'form-message-edit',
           null,
-          '/profile/mscontacts',
+          '/profile/message/contacts',
           function(){
               $('#form-message-edit .chosen').chosen({
                   //width: 
@@ -171,7 +171,7 @@
                               'Исходящие сообщения',
                               'profile-msoutbox',
                               null,
-                              '/profile/msoutbox'
+                              '/profile/message/outbox'
                           );
                           return;
                       }
