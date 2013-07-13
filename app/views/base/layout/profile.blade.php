@@ -43,23 +43,23 @@
   <div class="row-fluid profile-content">
     <div class="span3">
       <!--button class="btn btn-primary" style="width: 100%;" onclick="showEditHousing()">Добавить объект</button-->
-      <button class="button button-rounded button-flat-primary" style="width: 100%;" onclick="newAnnouncement()">Добавить объявление</button>
+      <button class="button button-rounded button-flat-primary" style="width: 100%;" onclick="showEditAnnouncement()">Добавить объявление</button>
       
       <!--button href="#myModal" role="button" data-toggle="modal" class="button button-rounded button-flat-primary">Fade in &amp; Scale</button-->
       
-      <div class="side-menu">
+      <div class="side-menu" id="pf-cmenu-1">
+        <div class="sm-title"><i class="icon-home"></i> Объявления<i class="collapse"></i></div>
         <ul>
-          <li class="sm-title"><i class="icon-home"></i> Объявления</li>
           <li><a href="/profile/announcement/list" data-title="Мои объявления" data-tpl="profile-announcements">Мои объявления</a> <span class="sm-notify">1</span></li>
-          <li><a href="/profile/estate/list" data-title="Моя недвижимость" data-tpl="profile-announcements">Моя недвижимость</a> <span class="sm-notify">1</span></li>
+          <li><a href="/profile/estate/list" data-title="Моя недвижимость" data-tpl="profile-estates">Моя недвижимость</a> <span class="sm-notify">1</span></li>
           <li><a href="#">Статистика просмотров</a> <span class="badge sm-notify">2</span></li>
           <li><a href="#">Заявки</a> <span class="badge badge-important sm-notify">1</span></li>
           <li><a href="#">Черновики</a> <span class="sm-notify">1</span></li>
         </ul>
       </div>
-      <div class="side-menu">
+      <div class="side-menu" id="pf-cmenu-2">
+        <div class="sm-title"><i class="icon-envelope"></i> Сообщения<i class="collapse"></i></div>
         <ul>
-          <li class="sm-title"><i class="icon-envelope"></i> Сообщения</li>
           <li><a href="/profile/message/inbox" data-title="Входящие сообщения" data-tpl="profile-messages">Входящие</a> <span class="badge badge-info sm-notify">8</span></li>
           <li><a href="/profile/message/outbox" data-title="Исходящие сообщения" data-tpl="profile-messages">Исходящие</a></li>
           <li><a href="/profile/message/favorit" data-title="Избранные сообщения" data-tpl="profile-messages">Избранные</a></li>
@@ -67,12 +67,19 @@
           <li><a href="/profile/message/basket" data-title="Контакты" data-tpl="profile-mscontacts" style="font-weight: bold;">Контакты</a></li>
         </ul>
       </div>
-      <div class="side-menu">
+      <div class="side-menu" id="pf-cmenu-3">
+        <div class="sm-title"><i class="icon-user"></i> Профиль<i class="collapse"></i></div>
         <ul>
-          <li class="sm-title"><i class="icon-user"></i> Профиль</li>
           <li><a href="/profile/message/inbox" data-title="Входящие сообщения" data-tpl="profile-messages">Редактировать</a></li>
           <li><a href="/profile/message/outbox" data-title="Исходящие сообщения" data-tpl="profile-messages">Подтвердить</a></li>
           <li><a href="/auth/logout" style="font-weight: bold;" onclick="window.location='/auth/logout'">Выход</a></li>
+        </ul>
+      </div>
+      <div class="side-menu" id="pf-cmenu-4">
+        <div class="sm-title"><i class="icon-leaf"></i> Поддержка<i class="collapse"></i></div>
+        <ul>
+          <li><a href="/profile/support/help" data-title="Справочник" data-tpl="profile-help">Справочник</a></li>
+          <li><a href="/profile/support/feedback" data-title="Обратная связь" data-tpl="profile-feedback">Обратная связь</a></li>
         </ul>
       </div>
     </div>
@@ -91,15 +98,11 @@
   
   <script>
   function showEditHousing(){
-  
-      var data = {
-          name: 'Спасибо товарищу Сталину за наше счастливое детство'
-      }
       
       displayPage(
-          'Новое объявление', 
-          'form-announcement-edit', //'form-housing-edit',
-          data, 
+          'Новый объект', 
+          'form-housing-edit', //'form-housing-edit',
+          null, 
           null,
           function(){
               $('#form-housing-edit .slider3').slider({
@@ -134,6 +137,45 @@
           }
       );    
   }
+  
+  
+  function showEditAnnouncement(){ 
+       
+      displayPage(
+          'Новое объявление', 
+          'form-announcement-edit',
+          null,
+          null,
+          function(){
+              $('#form-announcement-edit .chosen').chosen({
+                  //width: 
+              });
+              $('#form-announcement-edit form').ajaxForm({
+                  dataType:  'json', 
+                  beforeSubmit: function(formData, jqForm, options){
+                      //
+                  },
+                  success: function(responseText, statusText, xhr, $form){
+                      
+                      return;
+                      
+                      if (responseText.success === true) {
+                          displayPage(
+                              'Исходящие сообщения',
+                              'profile-msoutbox',
+                              null,
+                              '/profile/message/outbox'
+                          );
+                          return;
+                      }
+                      
+                      alert('Не удалось отправить сообщение');
+                  }
+              });
+          }
+      );
+  } 
+  
   
   function showTemplate(name, data, complete){
       $('#profile-content-wrapper .component').fadeOut(100, function(){
@@ -176,42 +218,6 @@
       });
   }
   
-  
-  function newAnnouncement(){      
-      displayPage(
-          'Новое объявление', 
-          'form-announcement-edit',
-          null,
-          null,
-          function(){
-              $('#form-announcement-edit .chosen').chosen({
-                  //width: 
-              });
-              $('#form-announcement-edit form').ajaxForm({
-                  dataType:  'json', 
-                  beforeSubmit: function(formData, jqForm, options){
-                      //
-                  },
-                  success: function(responseText, statusText, xhr, $form){
-                      
-                      return;
-                      
-                      if (responseText.success === true) {
-                          displayPage(
-                              'Исходящие сообщения',
-                              'profile-msoutbox',
-                              null,
-                              '/profile/message/outbox'
-                          );
-                          return;
-                      }
-                      
-                      alert('Не удалось отправить сообщение');
-                  }
-              });
-          }
-      );
-  }  
   
   function newMessage(){      
       displayPage(
@@ -259,6 +265,37 @@
       );
       
       return false;
+  });
+  
+  
+  $(document).ready(function(){
+      //$.session.clear();
+      var _pf_cmenu = $.session.get('pf.cmenu');
+      if (!_pf_cmenu) _pf_cmenu = '';
+      _pf_cmenu = _pf_cmenu.split(',');
+      $('.side-menu').each(function(){
+          if ($.inArray($(this).attr('id'), _pf_cmenu) >= 0) {
+              $(this).find('ul').hide();
+              $(this).find('i.collapse').addClass('colps');
+          }
+      });
+      
+      $('.side-menu i.collapse').click(function(){
+          var parent = $(this).parents('.side-menu');
+          parent.find('ul').toggle('blind', {duration:200});
+          var _pf_cmenu = $.session.get('pf.cmenu');
+          if (!_pf_cmenu) _pf_cmenu = '';
+          _pf_cmenu = _pf_cmenu.split(','); 
+          if ($(this).hasClass('colps')) {
+              var _index = $.inArray(parent.attr('id'), _pf_cmenu);
+              delete(_pf_cmenu[_index]);
+              $(this).removeClass('colps');
+          } else {
+              _pf_cmenu.push(parent.attr('id'));
+              $(this).addClass('colps');
+          }
+          $.session.set('pf.cmenu', _pf_cmenu.join(',').replace(/^,+|,+$/g, '').replace(/,+/g, ','));
+      });
   });
   
   </script>

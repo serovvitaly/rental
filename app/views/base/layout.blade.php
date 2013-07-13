@@ -55,6 +55,7 @@
   <script src="/vendor/jquery/jsrender/jsrender.min.js"></script>
   <script src="/vendor/jquery/form/jquery.form.js"></script>
   <script src="/vendor/jquery/Mask/jquery.mask.js"></script>
+  <script src="/vendor/jquery/Session/jquery.session.js"></script>
   
   <script src="/skins/base/js/main.js"></script>
   

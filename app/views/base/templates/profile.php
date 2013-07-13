@@ -13,12 +13,18 @@
       <div class="tab-content" style="padding-bottom: 9px; border-bottom: 1px solid #ddd;">
         <div class="tab-pane active" id="tab1">
         
-        <fieldset style="margin-bottom: 30px">
+        <fieldset style="margin-bottom: 20px">
           
           <table><tbody>
             <tr>
+              <th style="width: 100px; text-align:left">Наименование</th>
+              <td>
+                <input type="text" name="title" style="width:300px" placeholder="это наименование будет видно только вам" required="required">
+              </td>
+            </tr>
+            <tr>
               <th style="width: 100px; text-align:left">Что сдается</th>
-              <td class="select-160" style="width: 200px;">
+              <td class="select-160">
                 <select style="width: 160px;" name="estate_type">
                 <?
                 foreach (EstateTypes::items() AS $item) {
@@ -27,25 +33,7 @@
                 ?>
                 </select>
               </td>
-              <!--td rowspan="2">
-                  <input type="text" style="font-size: 40px;height: 40px;width: 200px; margin-right:5px; margin-bottom: 0;">
-                  <select>
-                    <option value="RUB">РУБ</option>
-                    <option value="USD">USD</option>
-                    <option value="EUR">EUR</option>
-                  </select>
-                  <p style="padding-left: 17px;color: #9E9E9E;">Введите корректную стоимость</p> 
-              </td-->
             </tr>
-            <!--tr>
-              <th style="text-align:left">Срок аренды</th>
-              <td class="select-160">
-                <select style="width: 160px;">
-                  <option>на длительный срок</option>
-                  <option>посуточно</option>
-                </select>
-              </td>
-            </tr-->
           </tbody></table>
           
         </fieldset>
@@ -61,25 +49,25 @@
             <tr>
               <th>Площадь</th>
               <td>общая:</td>
-              <td><input type="number" style="width: 70px;"> <span>м<sup>2</sup></span></td>
+              <td><input type="text" class="spinner" style="width: 70px;"> <span>м<sup>2</sup></span></td>
               <td>жилая:</td>
-              <td><input type="number" style="width: 70px;"> <span>м<sup>2</sup></span></td>
+              <td><input type="text" class="spinner" style="width: 70px;"> <span>м<sup>2</sup></span></td>
               <td>кухня:</td>
-              <td><input type="number" style="width: 70px;"> <span>м<sup>2</sup></span></td>
+              <td><input type="text" class="spinner" style="width: 70px;"> <span>м<sup>2</sup></span></td>
             </tr>
             <tr>
               <th>Площадь</th>
               <td>дома:</td>
-              <td><input type="number" style="width: 70px;"> <span>м<sup>2</sup></span></td>
+              <td><input type="text" class="spinner" style="width: 70px;"> <span>м<sup>2</sup></span></td>
               <td>участка:</td>
-              <td><input type="number" style="width: 70px;"> <span>м<sup>2</sup></span></td>
+              <td><input type="text" class="spinner" style="width: 70px;"> <span>м<sup>2</sup></span></td>
             </tr>
             <tr>
               <th>Этаж/этажность</th>
               <td>этаж:</td>
-              <td><input type="number" style="width: 70px;"></td>
+              <td><input type="text" class="spinner" style="width: 70px;"></td>
               <td>этажность:</td>
-              <td><input type="number" style="width: 70px;"></td>
+              <td><input type="text" class="spinner" style="width: 70px;"></td>
               <td></td>
               <td></td>
             </tr>
@@ -112,19 +100,11 @@
             <tr>
               <th>Жилых комнат</th>
               <td></td>
-              <td colspan="5">
-                  <div class="ui-sommer">
-                    <div class="uis-head">
-                      <span>1</span>
-                      <span>2</span>
-                      <span>3</span>
-                      <span>4</span>
-                      <span>5</span>
-                      <span>>5</span>
-                    </div>
-                    <div class="slider6 uis-slider"></div>
-                </div>
-              </td>
+              <td><input type="text" class="spinner" style="width: 70px;"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
           </table>
         </fieldset>
@@ -274,8 +254,7 @@
      </div>
   </script>
 
-
-
+  
 <script id="tpl-form-announcement-edit" type="text/x-jsrender">
 <div id="form-announcement-edit" class="component" style="display:none">
 
@@ -328,7 +307,6 @@
 </div>  
 </script>  
 
-  
   
 <script id="tpl-profile-messages" type="text/x-jsrender">
 <div id="form-profile-msinbox" class="component" style="display:none">
@@ -425,10 +403,23 @@
   
   
   
+<script id="tpl-profile-estates" type="text/x-jsrender">
+<div id="profile-estates" class="component" style="display:none">
+  <div style="margin-bottom: 10px">
+    <button class="btn btn-small" onclick="showEditHousing()">Добавить объект</button>
+  </div>
+  
+
+  
+
+</div>
+</script>  
+  
+  
 <script id="tpl-profile-announcements" type="text/x-jsrender">
 <div id="profile-announcements" class="component" style="display:none">
   <div style="margin-bottom: 10px">
-    <button class="btn btn-small" onclick="newAnnouncement()">Добавить объявление</button>
+    <button class="btn btn-small" onclick="showEditAnnouncement()">Добавить объявление</button>
   </div>
   
 
