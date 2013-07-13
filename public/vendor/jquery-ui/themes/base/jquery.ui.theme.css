@@ -8,7 +8,7 @@
  *
  * http://docs.jquery.com/UI/Theming/API
  *
- * To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Arial%2Csans-serif&fwDefault=normal&fsDefault=12px&cornerRadius=2px&bgColorHeader=%23deedf7&bgTextureHeader=highlight_soft&bgImgOpacityHeader=100&borderColorHeader=%23aed0ea&fcHeader=%23222222&iconColorHeader=%2372a7cf&bgColorContent=%23ffffff&bgTextureContent=flat&bgImgOpacityContent=100&borderColorContent=%23dddddd&fcContent=%23362b36&iconColorContent=%2372a7cf&bgColorDefault=%23cddfec&bgTextureDefault=highlight_soft&bgImgOpacityDefault=80&borderColorDefault=%23c4dbea&fcDefault=%23237AA5&iconColorDefault=%23237AA5&bgColorHover=%23adc6d9&bgTextureHover=highlight_soft&bgImgOpacityHover=80&borderColorHover=%23a0bed1&fcHover=%2343799d&iconColorHover=%2343799d&bgColorActive=%2343799d&bgTextureActive=highlight_soft&bgImgOpacityActive=50&borderColorActive=%2343799d&fcActive=%23ffffff&iconColorActive=%23ffffff&bgColorHighlight=%23fff7c9&bgTextureHighlight=highlight_soft&bgImgOpacityHighlight=25&borderColorHighlight=%23efe087&fcHighlight=%23363636&iconColorHighlight=%235f5d4b&bgColorError=%23cd0a0a&bgTextureError=flat&bgImgOpacityError=15&borderColorError=%23cd0a0a&fcError=%23ffffff&iconColorError=%23ffffff&bgColorOverlay=%23d0d0d0&bgTextureOverlay=diagonals_thick&bgImgOpacityOverlay=90&opacityOverlay=80&bgColorShadow=%23000000&bgTextureShadow=highlight_hard&bgImgOpacityShadow=70&opacityShadow=30&thicknessShadow=7px&offsetTopShadow=-7px&offsetLeftShadow=-7px&cornerRadiusShadow=8px
+ * To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Arial%2Csans-serif&fwDefault=normal&fsDefault=12px&cornerRadius=2px&bgColorHeader=%23edf4fa&bgTextureHeader=flat&bgImgOpacityHeader=100&borderColorHeader=%23c4dbea&fcHeader=%233984a9&iconColorHeader=%233984a9&bgColorContent=%23ffffff&bgTextureContent=flat&bgImgOpacityContent=100&borderColorContent=%23dddddd&fcContent=%23362b36&iconColorContent=%2372a7cf&bgColorDefault=%23edf4fa&bgTextureDefault=flat&bgImgOpacityDefault=100&borderColorDefault=%23c4dbea&fcDefault=%233984a9&iconColorDefault=%233984a9&bgColorHover=%23deeaf4&bgTextureHover=flat&bgImgOpacityHover=100&borderColorHover=%23c4dbea&fcHover=%233984a9&iconColorHover=%233984a9&bgColorActive=%2343799d&bgTextureActive=flat&bgImgOpacityActive=100&borderColorActive=%2343799d&fcActive=%23ffffff&iconColorActive=%23ffffff&bgColorHighlight=%23fff7c9&bgTextureHighlight=highlight_soft&bgImgOpacityHighlight=25&borderColorHighlight=%23efe087&fcHighlight=%23363636&iconColorHighlight=%237f7b54&bgColorError=%23cd0a0a&bgTextureError=flat&bgImgOpacityError=15&borderColorError=%23cd0a0a&fcError=%23ffffff&iconColorError=%23ffffff&bgColorOverlay=%2343799d&bgTextureOverlay=flat&bgImgOpacityOverlay=100&opacityOverlay=40&bgColorShadow=%23000000&bgTextureShadow=flat&bgImgOpacityShadow=70&opacityShadow=30&thicknessShadow=7px&offsetTopShadow=-7px&offsetLeftShadow=-7px&cornerRadiusShadow=8px
  */
 
 
@@ -37,13 +37,13 @@
 	color: #362b36;
 }
 .ui-widget-header {
-	border: 1px solid #aed0ea;
-	background: #deedf7 url(images/ui-bg_highlight-soft_100_deedf7_1x100.png) 50% 50% repeat-x;
-	color: #222222;
+	border: 1px solid #c4dbea;
+	background: #edf4fa url(images/ui-bg_flat_100_edf4fa_40x100.png) 50% 50% repeat-x;
+	color: #3984a9;
 	font-weight: bold;
 }
 .ui-widget-header a {
-	color: #222222;
+	color: #3984a9;
 }
 
 /* Interaction states
@@ -52,14 +52,14 @@
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
 	border: 1px solid #c4dbea;
-	background: #cddfec url(images/ui-bg_highlight-soft_80_cddfec_1x100.png) 50% 50% repeat-x;
+	background: #edf4fa url(images/ui-bg_flat_100_edf4fa_40x100.png) 50% 50% repeat-x;
 	font-weight: normal;
-	color: #237AA5;
+	color: #3984a9;
 }
 .ui-state-default a,
 .ui-state-default a:link,
 .ui-state-default a:visited {
-	color: #237AA5;
+	color: #3984a9;
 	text-decoration: none;
 }
 .ui-state-hover,
@@ -68,23 +68,23 @@
 .ui-state-focus,
 .ui-widget-content .ui-state-focus,
 .ui-widget-header .ui-state-focus {
-	border: 1px solid #a0bed1;
-	background: #adc6d9 url(images/ui-bg_highlight-soft_80_adc6d9_1x100.png) 50% 50% repeat-x;
+	border: 1px solid #c4dbea;
+	background: #deeaf4 url(images/ui-bg_flat_100_deeaf4_40x100.png) 50% 50% repeat-x;
 	font-weight: normal;
-	color: #43799d;
+	color: #3984a9;
 }
 .ui-state-hover a,
 .ui-state-hover a:hover,
 .ui-state-hover a:link,
 .ui-state-hover a:visited {
-	color: #43799d;
+	color: #3984a9;
 	text-decoration: none;
 }
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
 	border: 1px solid #43799d;
-	background: #43799d url(images/ui-bg_highlight-soft_50_43799d_1x100.png) 50% 50% repeat-x;
+	background: #43799d url(images/ui-bg_flat_100_43799d_40x100.png) 50% 50% repeat-x;
 	font-weight: normal;
 	color: #ffffff;
 }
@@ -162,20 +162,20 @@
 	background-image: url(images/ui-icons_72a7cf_256x240.png);
 }
 .ui-widget-header .ui-icon {
-	background-image: url(images/ui-icons_72a7cf_256x240.png);
+	background-image: url(images/ui-icons_3984a9_256x240.png);
 }
 .ui-state-default .ui-icon {
-	background-image: url(images/ui-icons_237AA5_256x240.png);
+	background-image: url(images/ui-icons_3984a9_256x240.png);
 }
 .ui-state-hover .ui-icon,
 .ui-state-focus .ui-icon {
-	background-image: url(images/ui-icons_43799d_256x240.png);
+	background-image: url(images/ui-icons_3984a9_256x240.png);
 }
 .ui-state-active .ui-icon {
 	background-image: url(images/ui-icons_ffffff_256x240.png);
 }
 .ui-state-highlight .ui-icon {
-	background-image: url(images/ui-icons_5f5d4b_256x240.png);
+	background-image: url(images/ui-icons_7f7b54_256x240.png);
 }
 .ui-state-error .ui-icon,
 .ui-state-error-text .ui-icon {
@@ -392,14 +392,14 @@
 
 /* Overlays */
 .ui-widget-overlay {
-	background: #d0d0d0 url(images/ui-bg_diagonals-thick_90_d0d0d0_40x40.png) 50% 50% repeat;
-	opacity: .8;
-	filter: Alpha(Opacity=80);
+	background: #43799d url(images/ui-bg_flat_100_43799d_40x100.png) 50% 50% repeat-x;
+	opacity: .4;
+	filter: Alpha(Opacity=40);
 }
 .ui-widget-shadow {
 	margin: -7px 0 0 -7px;
 	padding: 7px;
-	background: #000000 url(images/ui-bg_highlight-hard_70_000000_1x100.png) 50% top repeat-x;
+	background: #000000 url(images/ui-bg_flat_70_000000_40x100.png) 50% 50% repeat-x;
 	opacity: .3;
 	filter: Alpha(Opacity=30);
 	border-radius: 8px;
