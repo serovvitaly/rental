@@ -1,4 +1,4 @@
-﻿-- Скрипт сгенерирован Devart dbForge Studio for MySQL, Версия 6.0.315.0
+-- Скрипт сгенерирован Devart dbForge Studio for MySQL, Версия 6.0.315.0
 -- Домашняя страница продукта: http://www.devart.com/ru/dbforge/mysql/studio
 -- Дата скрипта: 14.07.2013 1:23:43
 -- Версия сервера: 5.1.68-community-log
@@ -87,8 +87,19 @@ COMMENT = 'Опции жилья';
 -- Описание для таблицы users
 --
 DROP TABLE IF EXISTS users;
-CREATE TABLE IF NOT EXISTS users (,
-  PRIMARY KEY (id)
+CREATE TABLE IF NOT EXISTS users (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  email varchar(100) NOT NULL COMMENT 'Email, является логином',
+  password varchar(255) DEFAULT NULL,
+  surname varchar(255) DEFAULT NULL COMMENT 'Фамилия',
+  name varchar(50) DEFAULT NULL COMMENT 'Имя',
+  patronymic varchar(255) DEFAULT NULL COMMENT 'Отчество',
+  created_at timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  confirmed_at timestamp NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Время подтверждения регистриции',
+  is_confirmed tinyint(1) DEFAULT 0 COMMENT 'Подтверждена ли регистрация',
+  last_visit timestamp NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Время последнего действия (посещения)',
+  PRIMARY KEY (id),
   UNIQUE INDEX email (email)
 )
 ENGINE = INNODB
