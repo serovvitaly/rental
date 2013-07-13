@@ -211,16 +211,19 @@ COMMENT = 'Сообщения пользователей';
 --
 DROP TABLE IF EXISTS pf_messages_users;
 CREATE TABLE IF NOT EXISTS pf_messages_users (
+  message_id int(11) NOT NULL,
+  user_id int(11) NOT NULL,
   CONSTRAINT FK_pf_messages_users_pf_messages_id FOREIGN KEY (message_id)
-    REFERENCES pf_messages(id) ON DELETE CASCADE ON UPDATE CASCADE
+  REFERENCES rental.pf_messages (id) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT FK_pf_messages_users_users_id FOREIGN KEY (user_id)
-    REFERENCES users(id) ON DELETE RESTRICT ON UPDATE RESTRICT
+  REFERENCES rental.users (id) ON DELETE RESTRICT ON UPDATE RESTRICT
 )
 ENGINE = INNODB
 AVG_ROW_LENGTH = 2730
 CHARACTER SET utf8
 COLLATE utf8_general_ci
 COMMENT = 'Список получателей сообщений';
+
 -- Таблица не содержит столбцов, типы которых поддерживаются экспортом схемы.
 -- Невозможно сгенерировать команды INSERT для этой таблицы.
 
