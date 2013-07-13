@@ -1,7 +1,7 @@
   
 <script id="tpl-form-housing-edit" type="text/x-jsrender">
 <div id="form-housing-edit" class="component" style="display:none">
-  <form action="" class="master">   
+  <form action="/profile/estate/save" class="master" method="POST">   
   <div class="tabbable restyle" style="margin-bottom: 18px;">
       <ul class="nav nav-tabs">
         <li class="active"><a href="#tab1" data-toggle="tab">Основное</a></li>
@@ -19,14 +19,15 @@
             <tr>
               <th style="width: 100px; text-align:left">Что сдается</th>
               <td class="select-160" style="width: 200px;">
-                <select style="width: 160px;">
-                  <option>квартира</option>
-                  <option>комната в квартире</option>
-                  <option>дом</option>
-                  <option>комната в доме</option>
+                <select style="width: 160px;" name="estate_type">
+                <?
+                foreach (EstateTypes::items() AS $item) {
+                    echo '<option value="'.$item['id'].'">'.$item['name'].'</option>';
+                }
+                ?>
                 </select>
               </td>
-              <td rowspan="2">
+              <!--td rowspan="2">
                   <input type="text" style="font-size: 40px;height: 40px;width: 200px; margin-right:5px; margin-bottom: 0;">
                   <select>
                     <option value="RUB">РУБ</option>
@@ -34,9 +35,9 @@
                     <option value="EUR">EUR</option>
                   </select>
                   <p style="padding-left: 17px;color: #9E9E9E;">Введите корректную стоимость</p> 
-              </td>
+              </td-->
             </tr>
-            <tr>
+            <!--tr>
               <th style="text-align:left">Срок аренды</th>
               <td class="select-160">
                 <select style="width: 160px;">
@@ -44,13 +45,13 @@
                   <option>посуточно</option>
                 </select>
               </td>
-            </tr>
+            </tr-->
           </tbody></table>
           
         </fieldset>
         
         <fieldset style="margin-bottom: 20px">
-          <textarea name="" placeholder="Краткое описание (не более 500 символов). На вкладке ``Условия и требования`` вы сможете внести более подробные данные." style="width: 656px; height: 86px;"></textarea>
+          <textarea name="introtext" placeholder="Краткое описание (не более 500 символов). На вкладке ``Условия и требования`` вы сможете внести более подробные данные." style="width: 656px; height: 86px;"></textarea>
         </fieldset>
         
         <fieldset style="margin-bottom: 20px">
@@ -60,25 +61,25 @@
             <tr>
               <th>Площадь</th>
               <td>общая:</td>
-              <td><input type="text" style="width: 70px;"> <span>м<sup>2</sup></span></td>
+              <td><input type="number" style="width: 70px;"> <span>м<sup>2</sup></span></td>
               <td>жилая:</td>
-              <td><input type="text" style="width: 70px;"> <span>м<sup>2</sup></span></td>
+              <td><input type="number" style="width: 70px;"> <span>м<sup>2</sup></span></td>
               <td>кухня:</td>
-              <td><input type="text" style="width: 70px;"> <span>м<sup>2</sup></span></td>
+              <td><input type="number" style="width: 70px;"> <span>м<sup>2</sup></span></td>
             </tr>
             <tr>
               <th>Площадь</th>
               <td>дома:</td>
-              <td><input type="text" style="width: 70px;"> <span>м<sup>2</sup></span></td>
+              <td><input type="number" style="width: 70px;"> <span>м<sup>2</sup></span></td>
               <td>участка:</td>
-              <td><input type="text" style="width: 70px;"> <span>м<sup>2</sup></span></td>
+              <td><input type="number" style="width: 70px;"> <span>м<sup>2</sup></span></td>
             </tr>
             <tr>
               <th>Этаж/этажность</th>
               <td>этаж:</td>
-              <td><input type="text" style="width: 70px;"></td>
+              <td><input type="number" style="width: 70px;"></td>
               <td>этажность:</td>
-              <td><input type="text" style="width: 70px;"></td>
+              <td><input type="number" style="width: 70px;"></td>
               <td></td>
               <td></td>
             </tr>
@@ -88,14 +89,23 @@
               <td colspan="5">
                   <select name="building_type">
                     <option value=""></option>
-                    <option value="блочный">Блочный</option>
-                    <option value="панельный">Панельный</option>
-                    <option value="монолит">Монолит</option>
-                    <option value="таунхаус">Таунхаус</option>
-                    <option value="сталинский">Сталинский</option>
-                    <option value="кирпичный">Кирпичный</option>
-                    <option value="кирпично-монолитный">Кирпично-монолитный</option>
-                    <option value="элитный">Элитный</option>
+                    <?
+                    foreach (BuildingTypes::items() AS $item) {
+                        echo '<option value="'.$item['id'].'">'.$item['name'].'</option>';
+                    }
+                    ?>
+                  </select>
+              </td>
+            </tr>
+            <tr>
+              <th>Санузел</th>
+              <td></td>
+              <td colspan="5">
+                  <select name="bathroom_type">
+                    <option value=""></option>
+                    <option value="separated">Раздельный</option>
+                    <option value="combined">Совмещенный</option>
+                    <option value="few">Несколько с/у</option>
                   </select>
               </td>
             </tr>
@@ -186,25 +196,25 @@
           <legend>Опции</legend>
            <div class="row-fluid">
              <ul class="span4 list">
-               <li><input type="checkbox" name=""><label> Телефон</label></li>     
-               <li><input type="checkbox" name=""><label> Мебель</label></li>     
-               <li><input type="checkbox" name=""><label> Балкон</label></li>     
-               <li><input type="checkbox" name=""><label> Лифт</label></li>     
-               <li><input type="checkbox" name=""><label> Мусоропровод</label></li>
+             <?
+             foreach (HousingOptions::items(0, 5) AS $item) {
+                 echo '<li><input type="checkbox" name="housing_options[]" value="'.$item['bit'].'"><label> '.$item['name'].'</label></li>';
+             }
+             ?>
              </ul>
              <ul class="span4 list">
-               <li><input type="checkbox" name=""><label> Парковка</label></li>     
-               <li><input type="checkbox" name=""><label> Лоджия</label></li>     
-               <li><input type="checkbox" name=""><label> Кондиционер</label></li>     
-               <li><input type="checkbox" name=""><label> Холодильник</label></li>     
-               <li><input type="checkbox" name=""><label> Телевизор</label></li>
+             <?
+             foreach (HousingOptions::items(5, 5) AS $item) {
+                 echo '<li><input type="checkbox" name="housing_options[]" value="'.$item['bit'].'"><label> '.$item['name'].'</label></li>';
+             }
+             ?>
              </ul>
              <ul class="span4 list">
-               <li><input type="checkbox" name=""><label> Стиральная машина</label></li>     
-               <li><input type="checkbox" name=""><label> Интернет</label></li>     
-               <li><input type="checkbox" name=""><label> Домофон</label></li>     
-               <li><input type="checkbox" name=""><label> Бытовые приборы</label></li>     
-               <li><input type="checkbox" name=""><label> Охрана</label></li>
+             <?
+             foreach (HousingOptions::items(10, 5) AS $item) {
+                 echo '<li><input type="checkbox" name="housing_options[]" value="'.$item['bit'].'"><label> '.$item['name'].'</label></li>';
+             }
+             ?>
              </ul>
            </div>
         </fieldset>
@@ -244,7 +254,7 @@
 
         <fieldset style="margin-bottom: 20px">
           <p>Здесь вы можете описать условия проживания и требования к съемщику(кам).</p>
-          <textarea name="" placeholder="" style="width: 656px; height: 384px;"></textarea>
+          <textarea name="full_rules" style="width: 656px; height: 384px;"></textarea>
         </fieldset>
         
         </div>
@@ -263,6 +273,61 @@
        </form>
      </div>
   </script>
+
+
+
+<script id="tpl-form-announcement-edit" type="text/x-jsrender">
+<div id="form-announcement-edit" class="component" style="display:none">
+
+  <form class="bs-docs-example form-horizontal" action="/profile/announcement/save" class="master" method="POST">
+    <div class="control-group">
+      <label class="control-label" for="inputEmail">Объект недвижимости</label>
+      <div class="controls">
+        <select style="width: 160px;">
+          <option></option>
+          <option></option>
+        </select>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="inputPassword">Срок аренды</label>
+      <div class="controls">
+        <select style="width: 160px;">
+          <option>на длительный срок</option>
+          <option>посуточно</option>
+        </select>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="inputPassword">Стоимость</label>
+      <div class="controls">
+        <input type="text" class="mask-money" style="width: 77px; margin-right: -4px; font-size: 18px; text-align: right;">
+        <select>
+          <option value="RUB">РУБ</option>
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+        </select>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="inputPassword">Когда освободится</label>
+      <div class="controls">
+        <input type="text" style="width: 77px;" class="datepicker">
+        <span class="field-note">Установите дату, если хотите указать, что жилье в будущем освободится.</span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="inputPassword">Окончание публикации</label>
+      <div class="controls">
+        <input type="text" style="width: 77px;" class="datepicker">
+        <span class="field-note">Это поле можно оставить пустым, в этом случае объявление будет опубликовано на неопределенный срок.</span>
+      </div>
+    </div>
+  </form>
+  
+</div>  
+</script>  
+
   
   
 <script id="tpl-profile-messages" type="text/x-jsrender">
@@ -354,6 +419,20 @@
     </form>
 
   </div>
+
+</div>
+</script>
+  
+  
+  
+<script id="tpl-profile-announcements" type="text/x-jsrender">
+<div id="profile-announcements" class="component" style="display:none">
+  <div style="margin-bottom: 10px">
+    <button class="btn btn-small" onclick="newAnnouncement()">Добавить объявление</button>
+  </div>
+  
+
+  
 
 </div>
 </script>

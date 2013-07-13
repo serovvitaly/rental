@@ -11,6 +11,7 @@
   
   <link rel="stylesheet" type="text/css" href="/vendor/jquery/toastmessage/resources/css/jquery.toastmessage.css">
   <script src="/vendor/jquery/toastmessage/jquery.toastmessage.js"></script>
+  <script src="/vendor/jquery-ui/ui/i18n/jquery.ui.datepicker-ru.js"></script>
   
   <link rel="stylesheet" type="text/css" href="/vendor/jquery/iCheck/skins/all.css">
   <script src="/vendor/jquery/iCheck/jquery.icheck.min.js"></script>
@@ -53,6 +54,7 @@
   
   <script src="/vendor/jquery/jsrender/jsrender.min.js"></script>
   <script src="/vendor/jquery/form/jquery.form.js"></script>
+  <script src="/vendor/jquery/Mask/jquery.mask.js"></script>
   
   <script src="/skins/base/js/main.js"></script>
   

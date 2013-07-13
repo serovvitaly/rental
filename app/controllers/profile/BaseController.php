@@ -14,7 +14,7 @@ class Profile_BaseController extends BaseController {
     }
     
     public function getIndex()
-    {
+    {        
         $this->layout->profile_title = 'Личный прорфиль';
         
         $this->layout->content = '<div class="component"></div>';

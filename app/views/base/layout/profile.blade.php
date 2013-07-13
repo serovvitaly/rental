@@ -4,7 +4,7 @@
 <div class="container content-conteiner">
 
   <div class="row-fluid profile-title">
-    <div class="span10 pft-title"><h4>{{$profile_title}}</h4></div>
+    <div class="span10 pft-title"><h4>Личный кабинет</h4></div>
     <div class="span2 pft-actions"></div>
   </div>
   
@@ -43,15 +43,16 @@
   <div class="row-fluid profile-content">
     <div class="span3">
       <!--button class="btn btn-primary" style="width: 100%;" onclick="showEditHousing()">Добавить объект</button-->
-      <button class="button button-rounded button-flat-primary" style="width: 100%;" onclick="showEditHousing()">Добавить объект</button>
+      <button class="button button-rounded button-flat-primary" style="width: 100%;" onclick="newAnnouncement()">Добавить объявление</button>
       
       <!--button href="#myModal" role="button" data-toggle="modal" class="button button-rounded button-flat-primary">Fade in &amp; Scale</button-->
       
       <div class="side-menu">
         <ul>
           <li class="sm-title"><i class="icon-home"></i> Объявления</li>
-          <li><a href="#">Список объектов</a> <span class="sm-notify">1</span></li>
-          <li><a href="#">Просмотры</a> <span class="badge sm-notify">2</span></li>
+          <li><a href="/profile/announcement/list" data-title="Мои объявления" data-tpl="profile-announcements">Мои объявления</a> <span class="sm-notify">1</span></li>
+          <li><a href="/profile/estate/list" data-title="Моя недвижимость" data-tpl="profile-announcements">Моя недвижимость</a> <span class="sm-notify">1</span></li>
+          <li><a href="#">Статистика просмотров</a> <span class="badge sm-notify">2</span></li>
           <li><a href="#">Заявки</a> <span class="badge badge-important sm-notify">1</span></li>
           <li><a href="#">Черновики</a> <span class="sm-notify">1</span></li>
         </ul>
@@ -62,12 +63,21 @@
           <li><a href="/profile/message/inbox" data-title="Входящие сообщения" data-tpl="profile-messages">Входящие</a> <span class="badge badge-info sm-notify">8</span></li>
           <li><a href="/profile/message/outbox" data-title="Исходящие сообщения" data-tpl="profile-messages">Исходящие</a></li>
           <li><a href="/profile/message/favorit" data-title="Избранные сообщения" data-tpl="profile-messages">Избранные</a></li>
-          <li><a href="/profile/message/contacts" data-title="Контакты" data-tpl="profile-mscontacts" style="font-weight: bold;">Контакты</a></li>
+          <li><a href="/profile/message/favorit" data-title="Корзина" data-tpl="profile-messages">Корзина</a></li>
+          <li><a href="/profile/message/basket" data-title="Контакты" data-tpl="profile-mscontacts" style="font-weight: bold;">Контакты</a></li>
+        </ul>
+      </div>
+      <div class="side-menu">
+        <ul>
+          <li class="sm-title"><i class="icon-user"></i> Профиль</li>
+          <li><a href="/profile/message/inbox" data-title="Входящие сообщения" data-tpl="profile-messages">Редактировать</a></li>
+          <li><a href="/profile/message/outbox" data-title="Исходящие сообщения" data-tpl="profile-messages">Подтвердить</a></li>
+          <li><a href="/auth/logout" style="font-weight: bold;" onclick="window.location='/auth/logout'">Выход</a></li>
         </ul>
       </div>
     </div>
     <div class="span9">
-      <h4 id="profile-loader-title" class="hide"></h4>
+      <h4 id="profile-loader-title">Стартовая</h4>
       <span id="profile-loader-info"></span>
       <div id="profile-content-wrapper">
         {{$content}}
@@ -87,8 +97,8 @@
       }
       
       displayPage(
-          'Добавление объекта', 
-          'form-housing-edit',
+          'Новое объявление', 
+          'form-announcement-edit', //'form-housing-edit',
           data, 
           null,
           function(){
@@ -107,6 +117,19 @@
                   $('#form-housing-edit .type-tabs .tab-item:visible').fadeOut(100, function(){
                       $('#form-housing-edit .type-tabs .tab-item[data-type="'+dataType+'"]').fadeIn();
                   });
+              });
+              
+              $('#form-housing-edit form').ajaxForm({
+                  dataType:  'json', 
+                  beforeSubmit: function(formData, jqForm, options){
+                      //
+                  },
+                  success: function(responseText, statusText, xhr, $form){
+                      if (responseText.success === true) {
+                          //
+                          
+                      }
+                  }
               });
           }
       );    
@@ -141,7 +164,7 @@
           dataType: 'json',
           success: function(data){
               if (data.success === true) {
-                  if (!data.result || data.result.length < 1) data.result = [];
+                  if (!data.result || data.result.length < 1) data.result = {};
                   showTemplate(tpl, data.result, complite);
               }
               $('#profile-loader-title').html(title).removeClass('load');
@@ -153,6 +176,42 @@
       });
   }
   
+  
+  function newAnnouncement(){      
+      displayPage(
+          'Новое объявление', 
+          'form-announcement-edit',
+          null,
+          null,
+          function(){
+              $('#form-announcement-edit .chosen').chosen({
+                  //width: 
+              });
+              $('#form-announcement-edit form').ajaxForm({
+                  dataType:  'json', 
+                  beforeSubmit: function(formData, jqForm, options){
+                      //
+                  },
+                  success: function(responseText, statusText, xhr, $form){
+                      
+                      return;
+                      
+                      if (responseText.success === true) {
+                          displayPage(
+                              'Исходящие сообщения',
+                              'profile-msoutbox',
+                              null,
+                              '/profile/message/outbox'
+                          );
+                          return;
+                      }
+                      
+                      alert('Не удалось отправить сообщение');
+                  }
+              });
+          }
+      );
+  }  
   
   function newMessage(){      
       displayPage(

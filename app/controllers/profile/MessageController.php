@@ -106,6 +106,23 @@ class Profile_MessageController extends Profile_BaseController {
     
     
     /**
+    * Возвращает список сообщений перемещенных в корзину
+    * 
+    */
+    public function postBasket()
+    {
+        
+        
+        $out['success'] = true;
+        $out['result']  = array(
+            'rows' => $this->_USER->messages_inbox()->where('is_favorite', '=', 1)->where('is_removed', '!=', 1)->get()->toArray()
+        );
+        
+        return json_encode($out);
+    }
+    
+    
+    /**
     * Возвращает список контактов
     * 
     */
@@ -140,7 +157,6 @@ class Profile_MessageController extends Profile_BaseController {
         
         $output['success'] = !$validator->fails();
         $output['errors']  = $validator->errors()->all();
-        $output['input']  = $input;
         
         if (!$validator->fails()) {
             

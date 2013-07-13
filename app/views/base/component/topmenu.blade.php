@@ -23,7 +23,7 @@
                 <ul class="dropdown-menu">
                   <li><a href="#">Избранное</a></li>
                   <li><a href="#">Another action</a></li>
-                  <li><a href="/profile">Профиль</a></li>
+                  <li><a href="/profile">Личный кабинет</a></li>
                   <li class="divider"></li>
                   <li><a href="/auth/logout">Выход</a></li>
                 </ul>
