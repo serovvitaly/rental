@@ -1,6 +1,6 @@
 ﻿-- Скрипт сгенерирован Devart dbForge Studio for MySQL, Версия 6.0.315.0
 -- Домашняя страница продукта: http://www.devart.com/ru/dbforge/mysql/studio
--- Дата скрипта: 14.07.2013 0:08:04
+-- Дата скрипта: 14.07.2013 1:14:18
 -- Версия сервера: 5.1.68-community-log
 -- Версия клиента: 4.1
 
@@ -23,7 +23,7 @@ USE rental;
 -- Описание для таблицы building_types
 --
 DROP TABLE IF EXISTS building_types;
-CREATE TABLE building_types (
+CREATE TABLE IF NOT EXISTS building_types (
   id INT(11) NOT NULL AUTO_INCREMENT,
   name VARCHAR(50) DEFAULT NULL,
   PRIMARY KEY (id)
@@ -39,7 +39,7 @@ COMMENT = 'Типы строений';
 -- Описание для таблицы collection
 --
 DROP TABLE IF EXISTS collection;
-CREATE TABLE collection (
+CREATE TABLE IF NOT EXISTS collection (
   id INT(11) NOT NULL AUTO_INCREMENT,
   introtext VARCHAR(500) DEFAULT NULL,
   created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
@@ -56,7 +56,7 @@ COLLATE utf8_general_ci;
 -- Описание для таблицы estate_types
 --
 DROP TABLE IF EXISTS estate_types;
-CREATE TABLE estate_types (
+CREATE TABLE IF NOT EXISTS estate_types (
   id INT(11) NOT NULL AUTO_INCREMENT,
   name VARCHAR(50) DEFAULT NULL,
   PRIMARY KEY (id)
@@ -72,7 +72,7 @@ COMMENT = 'Типы объектов для аренды';
 -- Описание для таблицы housing_options
 --
 DROP TABLE IF EXISTS housing_options;
-CREATE TABLE housing_options (
+CREATE TABLE IF NOT EXISTS housing_options (
   bit INT(11) NOT NULL,
   name VARCHAR(50) DEFAULT NULL,
   PRIMARY KEY (bit)
@@ -87,7 +87,7 @@ COMMENT = 'Опции жилья';
 -- Описание для таблицы users
 --
 DROP TABLE IF EXISTS users;
-CREATE TABLE users (,
+CREATE TABLE IF NOT EXISTS users (,
   PRIMARY KEY (id)
   UNIQUE INDEX email (email)
 )
@@ -103,7 +103,7 @@ COLLATE utf8_general_ci;
 -- Описание для таблицы announcements
 --
 DROP TABLE IF EXISTS announcements;
-CREATE TABLE announcements (
+CREATE TABLE IF NOT EXISTS announcements (
   id INT(11) NOT NULL AUTO_INCREMENT,
   user_id INT(11) NOT NULL,
   created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
@@ -122,7 +122,7 @@ COMMENT = 'Объявления';
 -- Описание для таблицы estates
 --
 DROP TABLE IF EXISTS estates;
-CREATE TABLE estates (
+CREATE TABLE IF NOT EXISTS estates (
   id INT(11) NOT NULL AUTO_INCREMENT,
   _token VARCHAR(40) NOT NULL,
   user_id INT(11) NOT NULL COMMENT 'ID владельца',
@@ -152,7 +152,7 @@ COMMENT = 'Объекты недвижимости';
 -- Описание для таблицы pf_contacts
 --
 DROP TABLE IF EXISTS pf_contacts;
-CREATE TABLE pf_contacts (
+CREATE TABLE IF NOT EXISTS pf_contacts (
   user_id INT(11) NOT NULL,
   receiver_id INT(11) NOT NULL,
   UNIQUE INDEX UK_pf_contacts (user_id, receiver_id),
@@ -171,7 +171,7 @@ COMMENT = 'Список контактов';
 -- Описание для таблицы pf_messages
 --
 DROP TABLE IF EXISTS pf_messages;
-CREATE TABLE pf_messages (
+CREATE TABLE IF NOT EXISTS pf_messages (
   id INT(11) NOT NULL AUTO_INCREMENT,
   user_id INT(11) NOT NULL COMMENT 'ID отправителя (пользователя создавшего сообщение)',
   title VARCHAR(255) DEFAULT NULL COMMENT 'Заголовок сообщения',
@@ -199,7 +199,7 @@ COMMENT = 'Сообщения пользователей';
 -- Описание для таблицы pf_messages_users
 --
 DROP TABLE IF EXISTS pf_messages_users;
-CREATE TABLE pf_messages_users (
+CREATE TABLE IF NOT EXISTS pf_messages_users (
   CONSTRAINT FK_pf_messages_users_pf_messages_id FOREIGN KEY (message_id)
     REFERENCES pf_messages(id) ON DELETE CASCADE ON UPDATE CASCADE
   CONSTRAINT FK_pf_messages_users_users_id FOREIGN KEY (user_id)
