@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Table message_id="1" user_id="1" />
+  <Table message_id="1" user_id="3" />
+  <Table message_id="2" user_id="2" />
+  <Table message_id="2" user_id="3" />
+  <Table message_id="3" user_id="1" />
+  <Table message_id="4" user_id="2" />
+</Root>
