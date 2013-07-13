@@ -68,6 +68,14 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     }
     
     
+    public function roughs()
+    {
+        $roughs = $this->estates()->where('is_rough', '=', 1)->get();
+        
+        return $roughs->count();
+    }
+    
+    
     /**
     * Возвращает входящие сообщения пользователя
     * 

@@ -54,7 +54,7 @@
           <li><a href="/profile/estate/list" data-title="Моя недвижимость" data-tpl="profile-estates">Моя недвижимость</a> <span class="sm-notify">1</span></li>
           <li><a href="#">Статистика просмотров</a> <span class="badge sm-notify">2</span></li>
           <li><a href="#">Заявки</a> <span class="badge badge-important sm-notify">1</span></li>
-          <li><a href="#">Черновики</a> <span class="sm-notify">1</span></li>
+          <li><a href="/profile/estate/roughs" data-title="Черновики" data-tpl="profile-estates">Черновики</a> <span class="sm-notify" id="notify-rough"><?= Auth::user()->roughs() ?></span></li>
         </ul>
       </div>
       <div class="side-menu" id="pf-cmenu-2">
@@ -105,6 +105,11 @@
           null, 
           null,
           function(){
+              var _time = new Date().getTime();
+              var _uid  = '<?= Auth::check() ? Auth::user()->id : 0 ?>' * 1;
+              var _token = (_uid > 0) ? _uid + '' + _time : 0;
+              $('#form-housing-edit input[name="_token"]').val(_token);
+              
               $('#form-housing-edit .slider3').slider({
                   min: 0,
                   max: 2,
@@ -133,6 +138,39 @@
                           
                       }
                   }
+              });
+              
+              this.onchange = function(field, value){
+                  
+                  $('#profile-loader-info').html('Сохранение');
+                  
+                  if (typeof field != 'string' || field.trim() == '') return; // TODO: Разобраться с проблемой наложения событий
+                  
+                  var data = {
+                      _id:    $('#form-housing-edit input[name="_id"]').val(),
+                      _token: $('#form-housing-edit input[name="_token"]').val(),
+                  };
+                  
+                  data[field] = value;
+                  
+                  $.ajax({
+                      url: '/profile/estate/save',
+                      type: 'POST',
+                      dataType: 'json',
+                      data: data,
+                      success: function(data){
+                          $('#profile-loader-info').html('Изменения сохраненены');
+                          setTimeout($('#profile-loader-info').html(''), 3000);
+                      }
+                  });
+              }
+              
+              var self = this;
+              
+              $('#form-housing-edit :input').on('change', function(e){
+                  setTimeout(self.onchange($(this).attr('name'), $(this).val()), 2000);
+              }).on('keyup', function(e){
+                  setTimeout(self.onchange($(this).attr('name'), $(this).val()), 2000);
               });
           }
       );    

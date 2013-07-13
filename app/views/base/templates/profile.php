@@ -1,7 +1,9 @@
   
 <script id="tpl-form-housing-edit" type="text/x-jsrender">
 <div id="form-housing-edit" class="component" style="display:none">
-  <form action="/profile/estate/save" class="master" method="POST">   
+  <form action="/profile/estate/save" class="master" method="POST"> 
+    <input type="hidden" name="_id" value="0">  
+    <input type="hidden" name="_token" value="">  
   <div class="tabbable restyle" style="margin-bottom: 18px;">
       <ul class="nav nav-tabs">
         <li class="active"><a href="#tab1" data-toggle="tab">Основное</a></li>
@@ -14,7 +16,6 @@
         <div class="tab-pane active" id="tab1">
         
         <fieldset style="margin-bottom: 20px">
-          
           <table><tbody>
             <tr>
               <th style="width: 100px; text-align:left">Наименование</th>
@@ -76,7 +77,7 @@
               <td></td>
               <td colspan="5">
                   <select name="building_type">
-                    <option value=""></option>
+                    <option value="0"></option>
                     <?
                     foreach (BuildingTypes::items() AS $item) {
                         echo '<option value="'.$item['id'].'">'.$item['name'].'</option>';

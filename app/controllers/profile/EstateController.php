@@ -7,7 +7,25 @@ class Profile_EstateController extends Profile_BaseController {
     {
         $output['success'] = true;
         
-        $output['result']  = $this->_USER->estates()->get()->toArray();
+        $output['result']  = array(
+            'rows' => $this->_USER->estates()->get()->toArray()
+        );
+        
+        return json_encode($output);
+    }  
+    
+    
+    /**
+    * Возвращает черновики
+    * 
+    */
+    public function postRoughs()
+    {
+        $output['success'] = true;
+        
+        $output['result']  = array(
+            'rows' => $this->_USER->estates()->where('is_rough', '=', 1)->get()->toArray()
+        );
         
         return json_encode($output);
     }  
@@ -19,17 +37,8 @@ class Profile_EstateController extends Profile_BaseController {
         
         $validator = Validator::make($input, array(
             //'to'      => array('required'),
-            //'title'   => array('required', 'min:2'),
-            //'content' => array('required')
+            '_token' => array('required', 'numeric', 'min:14')
         ));
-        
-        // создаем битовую маску для опций недвижимости
-        $_housing_options = 0;
-        if (isset($input['housing_options']) AND count($input['housing_options']) > 0) {
-            foreach ($input['housing_options'] AS $_option) {
-                $_housing_options += $_option;
-            }
-        }
         
         
         $output['success'] = !$validator->fails();
@@ -37,7 +46,31 @@ class Profile_EstateController extends Profile_BaseController {
         
         if (!$validator->fails()) {
             
-            //           
+            $_id    = (isset($input['_id'])    AND is_numeric($input['_id']))    ? (int) $input['_id'] : 0;
+            $_token = $input['_token'];
+            
+            $estate = $this->_USER->estates()->where('_token', '=', $_token)->first();
+            
+            $output['_token'] = $_token;
+            $output['sudo'] = $estate;
+            //return json_encode($output);
+            if (!$estate) {
+                $estate = new Estate();
+                $estate->_token = $_token;
+            }
+            
+            // создаем битовую маску для опций недвижимости
+            if (isset($input['housing_options']) AND count($input['housing_options']) > 0) {
+                $_housing_options = 0;
+                foreach ($input['housing_options'] AS $_option) {
+                    $_housing_options += $_option;
+                }
+                $input['housing_options'] = $_housing_options;
+            }
+            
+            $estate->fill($input); 
+            
+            $this->_USER->estates()->save($estate);        
             
         }
         

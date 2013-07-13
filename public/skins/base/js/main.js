@@ -82,7 +82,7 @@ function required(target, options){
 }
 
 function initCustom(target){
-    iCheckInit(target);
+   // iCheckInit(target);
     SelectBoxInit(target);
     datepicker(target);
     spinner(target);
