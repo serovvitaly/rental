@@ -55,6 +55,14 @@ i.grey{
     color: grey;
 }
 
+.dropdown-menu {
+    border: 1px solid rgba(0, 144, 213);
+    border: 3px solid rgba(0, 144, 213, 0.2);
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+}
+
 .modal-backdrop {
     background-color: #30597A;
 }
@@ -222,9 +230,9 @@ i.grey{
 .content-conteiner{
     background: #FFF;
     
-    -webkit-border-radius: 4px;
-       -moz-border-radius: 4px;
-            border-radius: 4px;
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
             
     -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
        -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -249,12 +257,16 @@ i.grey{
             box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
     
     color: #FFF;
-    -webkit-border-radius: 4px 4px 0 0;
-       -moz-border-radius: 4px 4px 0 0;
-            border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 3px 3px 0 0;
+       -moz-border-radius: 3px 3px 0 0;
+            border-radius: 3px 3px 0 0;
 }
 .profile-title .pft-title{
     padding-left: 20px;
+}
+.profile-title .pft-actions{
+    height: 40px;
+    background:  url(../img/st-gear.png) no-repeat 0px -27px;
 }
 .profile-title h4{
     font-weight: normal;
@@ -329,7 +341,7 @@ i.grey{
     margin: 10px 0;
 }
 .ui-corner-all{
-    border-radius: 8px;
+ /*   border-radius: 8px; */
 }
 .ui-slider-horizontal {
     height: 2px;
@@ -341,9 +353,10 @@ i.grey{
 .ui-slider .ui-slider-handle {
     width: 14px;
     height: 14px;
+    border-radius: 8px;
 }
 .ui-widget-header {
-    background: #9ECDFF;
+  /*  background: #9ECDFF; */
 }
 
 
@@ -419,13 +432,13 @@ ul.list label {
 
 /* -- profile-loader-title -- */
 #profile-loader-title{
-    padding-right: 30px;
     display: inline-block;
     color: #265D81;
     margin-top: 6px;
 }
 #profile-loader-title.load{
     background: url(../img/ajax-loader-1.gif) no-repeat right center;
+    padding-right: 30px;
 }
 #profile-loader-title.hide{
     display: none;
@@ -519,7 +532,7 @@ ul.list label {
 }
 .side-menu .sm-notify{
     float: right;
-    margin-right: 70px;
+    margin-right: 10px;
 }
 .side-menu .sm-title{
     font-size: 11px;
@@ -559,4 +572,17 @@ button [class^="icon-"], button [class*=" icon-"], button [class^="icon-"]:befor
 }
 .button-flat-primary:hover {
     background: #166192;
+}
+
+
+.field-note{
+    width: 320px;
+    display: inline-block;
+    font: 11px/11px tahoma;
+    margin-left: 10px;
+    color: #CACACA;
+    cursor: help;
+}
+.field-note:hover{
+    color: #525252;
 }

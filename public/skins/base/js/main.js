@@ -28,9 +28,37 @@ function SelectBoxInit(target, options){
     //$(target + 'select').chosen();
 }
 
+function datepicker(target, options){
+    if (target) target = target.trim();
+    else target = '';
+    
+    if (target && target != '') target += ' ';
+    
+    var opt = $.extend(options, {
+        dateFormat: 'dd.mm.yy'
+    });
+    
+    $(target + '.datepicker').datepicker(opt);
+}
+
+function mask(target, options){
+    if (target) target = target.trim();
+    else target = '';
+    
+    if (target && target != '') target += ' ';
+    
+    var opt = $.extend(options, {
+        reverse: true
+    });
+    
+    $(target + '.mask-money').mask('000 000', opt);
+}
+
 function initCustom(target){
     iCheckInit(target);
-    //SelectBoxInit(target);
+    SelectBoxInit(target);
+    datepicker(target);
+    mask(target);
 }
 
 
