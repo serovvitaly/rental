@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Table id="1" email="serovvitaly@gmail.com" password="$2y$08$U5Jcq1IF.wxRP9vD5JvQsuGng3ioP0aHR4.Tyfby0XLPM04sMCZtG" surname="Серов" name="Виталий" patronymic="Валерьевич" created_at="2013-07-08T21:45:32" updated_at="2013-07-08T21:45:32" confirmed_at="0001-01-01T00:00:00" is_confirmed="0" last_visit="0001-01-01T00:00:00" />
+  <Table id="2" email="foo@bar.ru" password="$2y$08$k01EdSReqPE3hvdphvZu7uM4QTWYBzmKP3z2QLpt20TPkE0woZn6." surname="Бульба" name="Тарас" patronymic="Николаевич" created_at="2013-07-11T01:29:41" updated_at="2013-07-11T01:29:41" confirmed_at="0001-01-01T00:00:00" is_confirmed="0" last_visit="0001-01-01T00:00:00" />
+  <Table id="3" email="go@go.ru" password="$2y$08$6EaDb5E1/4dfJ3M1HRGdPe9CilHk5YL1E//b06pftUcuqJ8MEZzXu" surname="Сигал" name="Стивен" patronymic="" created_at="2013-07-11T07:47:18" updated_at="2013-07-11T07:47:18" confirmed_at="0001-01-01T00:00:00" is_confirmed="0" last_visit="0001-01-01T00:00:00" />
+</Root>
